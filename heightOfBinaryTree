@@ -1,3 +1,4 @@
+
   case class Node(var data: Int,
       var left : Option[Node],
        var right :Option[Node]
@@ -11,28 +12,25 @@ object Solution {
     Some(Node(5,
       Some(Node(2,
         Some(Node(12, None, None)),
-        Some(Node(11,
-          Some(Node(18,
-            Some(Node(8, None, None)),
-            Some(Node(6, None, None)))),
-          Some(Node(22, None, None)))))),
+        None)),
       Some(Node(1, None, None)))),
     Some(Node(4,
       Some(Node(9, None, None)),
       Some(Node(3, None, None)))))
 
   def main(args: Array[String]): Unit = {
-println(lengthOfTree(tree))
-    println(lLen +" -- "+ rLen)
+    println(s"Height of tree - ${heightOfTree(tree)}")
+    println(s"Number of nodes in tree - ${lLen +1}")
 
   }
 
-def lengthOfTree(node: Node) : Int={
+def heightOfTree(node: Node) : Int={
 
   def loop (nd: Option[Node]): Int = nd match {
     case None => 0
 
     case Some(nd) =>
+      lLen+=1
       Seq (loop(nd.right),loop(nd.left)).max +1
     case _ => 0
   }
@@ -40,3 +38,4 @@ def lengthOfTree(node: Node) : Int={
   loop(Option(node))
 }
 }
+

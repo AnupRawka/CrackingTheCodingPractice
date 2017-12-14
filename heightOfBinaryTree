@@ -1,4 +1,3 @@
-
   case class Node(var data: Int,
       var left : Option[Node],
        var right :Option[Node]
@@ -24,6 +23,7 @@ object Solution {
 
   def main(args: Array[String]): Unit = {
 println(lengthOfTree(tree))
+    println(lLen +" -- "+ rLen)
 
   }
 
@@ -31,9 +31,12 @@ def lengthOfTree(node: Node) : Int={
 
   def loop (nd: Option[Node]): Int = nd match {
     case None => 0
-    case Some(nd) => Seq (loop(nd.left),loop(nd.left)).max +1
+
+    case Some(nd) =>
+      Seq (loop(nd.right),loop(nd.left)).max +1
     case _ => 0
   }
+
   loop(Option(node))
 }
 }

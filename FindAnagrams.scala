@@ -32,3 +32,4 @@ else println(s"${st} and $str does not have same length")
     list
     }
     }
+//The worst case complexity of this algorithm is O(3N)

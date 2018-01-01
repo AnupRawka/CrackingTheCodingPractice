@@ -20,7 +20,7 @@ def mergeSort(nums: List[Int]): List[Int] ={
         case (Nil, xs) => xs
         case (ys, Nil) => ys
         case (x:: xs1,y :: ys1 ) =>
-          if (x < y) x::merge(xs1, ys)
+          if (x < y) x::merge(xs1, ys) //to sort in desc order change (x<y) -> (x>y)
           else y::merge (xs, ys1)
       }
 
